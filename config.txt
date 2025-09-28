@@ -1,0 +1,34 @@
+#Scénario 1 : Feu unique, faible probabilité ==> Le feu se propage lentement et peut s’éteindre rapidement.
+
+
+#hauteur=5
+#largeur=5
+#probabilite=0.2
+#initialFeu=2,2
+
+
+#Scénario 2 : Feu unique, forte probabilité ==> Le feu se propage rapidement et presque toute la forêt brûle.
+
+#hauteur=5
+#largeur=5
+#probabilite=0.8
+#initialFeu=2,2
+
+
+#Scénario 3 : Plusieurs feux initiaux ==> propagation plus rapide et plus réaliste.
+
+
+hauteur=6
+largeur=6
+probabilite=0.5
+initialFeu=2,2;1,3;4,4
+
+
+#Scénario 4 : Bordures initiales ==> Les feux démarrent dans les coins, propagation vers le centre
+
+#hauteur=6
+#largeur=6
+#probabilite=0.6
+#initialFeu=0,0;0,5;5,0;5,5
+*/
+
