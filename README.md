@@ -5,7 +5,7 @@ La forêt est représentée par une **grille de cellules**, où chaque cellule p
 -  **NORMAL** : arbre sain  
 - **FEU** : arbre en feu  
 - **CENDRES** : arbre brûlé
-Le feu se propage **aléatoirement** aux cellules voisines(Haut, Bas, Gauche ou Droite) selon une probabilité configurable (P), et chaque cellule qui brûle se transforme en cendres.
+- Le feu se propage **aléatoirement** aux cellules voisines(Haut, Bas, Gauche ou Droite) selon une probabilité configurable (P), et chaque cellule qui brûle se transforme en cendres.
 ## Fonctionnalités
 - Simulation **étape par étape** de la propagation du feu.  
 - Paramètres configurables :  
