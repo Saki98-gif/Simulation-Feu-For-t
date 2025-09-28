@@ -1,4 +1,4 @@
-# Simulation-Feu-For-t
+# Simulation-Feu-Foret
 ## Description
 Ce projet est une **simulation de la propagation d’un feu de forêt** développée en Java.  
 La forêt est représentée par une **grille de cellules**, où chaque cellule peut être :
