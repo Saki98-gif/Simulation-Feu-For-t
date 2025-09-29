@@ -9,12 +9,12 @@ La forêt est représentée par une **grille de cellules**, chaque cellule corre
 - La simulation s’arrête quand il n’y a plus de case en feu.
 ## Obectif 
 L’objectif principal est de créer un **modèle flexible et modulable**, capable de s’adapter facilement à différents scénarios. Ce projet illustre la **conception orientée objet**, la **gestion progressive d’une simulation** et la **modularité du code**.
-Grâce à un fichier `config.txt` contenant les paramètres essentiels — tels que la **taille de la forêt**, la **probabilité de propagation** et les **positions initiales des feux** — il est possible de tester rapidement plusieurs scénarios et d’observer le comportement de la simulation **sans modifier le code source principal**.
+Grâce à un fichier `config.txt` contenant les paramètres essentiels — tels que la **taille de la forêt h lignes × l colonnes)**, la **probabilité de propagation** et les **positions initiales des feux** — il est possible de tester rapidement plusieurs scénarios et d’observer le comportement de la simulation **sans modifier le code source principal**.
 
 ## Fonctionnalités
 - Le temps est discret : Simulation **étape par étape** de la propagation du feu.  
 - Paramètres configurables :  
-  - Taille de la grille (hauteur, largeur)   
+  - Taille de la forêt (hauteur, largeur)   
   - Probabilité de propagation  (P)
   - Cellules initialement en feu  (positions initiales)
   - Code modulaire et extensible
@@ -28,5 +28,25 @@ Grâce à un fichier `config.txt` contenant les paramètres essentiels — tels 
 1. Configurer les paramètres dans le fichier de configuration 'config.txt'.  
 2. Exécuter `Simulation.java` depuis Eclipse .  
 3. Observer la propagation du feu étape par étape dans la console.
+
+## Logique principale de la simulation
+## 1. Initialisation
+- Lire les paramètres depuis le fichier de configuration (config.txt).
+- Créer la grille représentant la forêt.
+- Placer les feux initiaux sur les cellules spécifiées.
+## 2. Boucle de simulation
+- A **t = 0** : tant qu’il reste des cellules en feu, répéter les étapes suivantes :
+                - Mise à jour des cellules en feu : chaque cellule en feu devient cendres.
+                - Propagation du feu : pour chaque cellule adjacente normale :
+                    Vérifier que la cellule se trouve bien à l’intérieur des limites de la grille, en prenant soin des bords.
+                    Générer un nombre aléatoire entre 0 et 1.
+                    Si ce nombre est inférieur à la probabilité P, mettre la cellule en feu: Cela simule le caractère                             aléatoire et incertain de la propagation (influences du vent, humidité…).
+                - Affichage de la grille : mettre à jour l’état des cellules (nouvelles cellules en feu, cendres, cellules                               normales).
+
+-Pause courte (optionnelle) : permet de visualiser la propagation étape par étape et d’éviter que le feu se propage, dans la même étape, à partir des cellules qui viennent juste de brûler.
+
+## 3. Fin de la simulation##
+- Lorsqu’il n’y a plus de case en feu, afficher le message : "Fin de simulation, aucune case en feu".
+
 ## conslusion
 Cette approche garantit une solution **adaptable**, **modulaire** et **évolutive**.
