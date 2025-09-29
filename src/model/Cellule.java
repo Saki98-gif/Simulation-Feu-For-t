@@ -31,9 +31,9 @@ public class Cellule {
 	 @Override
 	 public String toString() {
 	     switch (etat) {
-	         case NORMAL:  return "\u001B[32m🌲\u001B[0m"; // vert pour arbres
-	         case FEU:     return "\u001B[31m🔥\u001B[0m"; // rouge pour feu
-	         case CENDRES: return "\u001B[30m⬛\u001B[0m"; // noire pour cendres
+	     case NORMAL:  return "\u001B[32m🌲\u001B[0m";        // vert pour arbres
+	     case FEU:     return "\u001B[31m🔥\u001B[0m";        // rouge pour feu
+	     case CENDRES: return "\u001B[38;5;240m⬛\u001B[0m";  // gris pour cendres
 	         default:      return "?";
 	     }
 	 }
