@@ -45,7 +45,7 @@ Grâce à un fichier `config.txt` contenant les paramètres essentiels — tels 
 
 -Pause courte (optionnelle) : permet de visualiser la propagation étape par étape et d’éviter que le feu se propage, dans la même étape, à partir des cellules qui viennent juste de brûler.<br>
 
-## 3. Fin de la simulation##
+## 3. Fin de la simulation
 - Lorsqu’il n’y a plus de case en feu, afficher le message : "Fin de simulation, aucune case en feu".
 
 ## conslusion
