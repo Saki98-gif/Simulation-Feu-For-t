@@ -28,9 +28,9 @@ Grâce à un fichier `config.txt` contenant les paramètres essentiels — tels 
 - Fichier de configuration des **paramètres initiaux** : config.txt, Stocker sous forme de **HashMap**, avec des **clés** et des **valeurs**.
  ### Exemple de configuration
 `
-hauteur=10  
-largeur=10  
-P=0.3  
+hauteur=10 <br>  
+largeur=10  <br>
+P=0.3  <br>
 initialFeu=0,0;1,2;3,4  
 `
 ## Usage
