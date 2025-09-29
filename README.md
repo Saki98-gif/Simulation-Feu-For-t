@@ -31,7 +31,7 @@ Grâce à un fichier `config.txt` contenant les paramètres essentiels — tels 
 
 ## Logique principale de la simulation
 ## 1. Initialisation
-- Lire les paramètres depuis le fichier de configuration (config.txt).
+- Lire les paramètres (hauteur, largeur, P, positions initiales des cellules en feu) depuis le fichier de configuration          (config.txt).
 - Créer la grille représentant la forêt.
 - Placer les feux initiaux sur les cellules spécifiées.
 ## 2. Boucle de simulation
