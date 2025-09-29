@@ -32,7 +32,7 @@ hauteur=10
 largeur=10
 P=0.3
 initialFeu=0,0;1,2;3,4
-
+```
 ## Usage
 1. Configurer les paramètres dans le fichier de configuration 'config.txt'.  
 2. Exécuter `Simulation.java` depuis Eclipse .  
