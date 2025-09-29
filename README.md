@@ -27,12 +27,12 @@ Grâce à un fichier `config.txt` contenant les paramètres essentiels — tels 
 - `utils/` : classe 'ConfigReader.java ' pour la lecture des fichiers de configuration  `config.txt` / `, Récupérer rapidement les valeurs à l’aide de leurs clés.
 - Fichier de configuration des **paramètres initiaux** : config.txt, Stocker sous forme de **HashMap**, avec des **clés** et des **valeurs**.
  ### Exemple de configuration
-```text
-hauteur=10
+`
+hauteur=10 <br>
 largeur=10
 P=0.3
 initialFeu=0,0;1,2;3,4
-```
+`
 ## Usage
 1. Configurer les paramètres dans le fichier de configuration 'config.txt'.  
 2. Exécuter `Simulation.java` depuis Eclipse .  
