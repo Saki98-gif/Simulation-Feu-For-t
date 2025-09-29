@@ -14,7 +14,7 @@ public class Foret {
 	    this.largeur = largeur;
 	    grille = new Cellule[hauteur][largeur];
 
-	    //Initialise la grille avec des cellules normales 
+	    //Initialiser la grille avec des cellules normales
 	    for (int i = 0; i < hauteur; i++) {
 	        for (int j = 0; j < largeur; j++) {
 	            grille[i][j] = new Cellule(); // état NORMAL par défaut
@@ -22,18 +22,18 @@ public class Foret {
 	    }
 	}
 	
-	//Vérifie que la cellule existe dans la grille avant de la mettre en feu.
+	//Vérifier que la cellule existe dans la grille avant de la mettre en feu, afin de ne pas dépasser les limites de la grille
 	public void mettreEnFeu(int ligne, int colonne) {
 	    if (ligne >= 0 && ligne < hauteur && colonne >= 0 && colonne < largeur) {
-	        grille[ligne][colonne].mettreEnFeu(); //mettre le feu à une cellule
+	        grille[ligne][colonne].mettreEnFeu(); //Mettre le feu à une cellule
 	    }
 	}
 	
-	//propagation du feu
+	//Propagation du feu aux cellules adjacentes
 	
 	public boolean propagation(double probabilite) {
 	    boolean Presentfeu = false;
-	    //une nouvelle grille temporaire pour éviter que le feu se propage plusieurs fois dans la même étape
+	    //Créer une nouvelle grille temporaire pour éviter que le feu se propage plusieurs fois dans la même étape
 	    Cellule[][] nouvelleGrille = new Cellule[hauteur][largeur];
 
 	    // Copier la grille actuelle
@@ -48,37 +48,63 @@ public class Foret {
 	    for (int i = 0; i < hauteur; i++) {
 	        for (int j = 0; j < largeur; j++) {
 	            if (grille[i][j].estEnFeu()) {
-	                // La cellule devient cendres
+	                // La cellule actuellement en feu devient cendres
 	                nouvelleGrille[i][j].bruler();
-	              //  double r;
-	             // Haut
-		               /* if (i > 0) {
-		                    r = random.nextDouble();
-		                    System.out.println("Cellule (" + i + "," + j + ") → Haut : random=" + r);
-		                    if (r < probabilite) nouvelleGrille[i-1][j].mettreEnFeu();
-		                }
-		                */
+	             
 	                // Propagation aux 4 voisins
 	               if (i > 0 && random.nextDouble() < probabilite) nouvelleGrille[i-1][j].mettreEnFeu(); // Haut
 	                if (i < hauteur - 1 && random.nextDouble() < probabilite) nouvelleGrille[i+1][j].mettreEnFeu();  // Bas
 	                if (j > 0 && random.nextDouble() < probabilite) nouvelleGrille[i][j-1].mettreEnFeu();// Gauche
 	                if (j < largeur - 1 && random.nextDouble() < probabilite) nouvelleGrille[i][j+1].mettreEnFeu();  // Droite
+	          //2ême méthode avec affichage d’un nombre aléatoire.
+
+	               //  double r;
+		             // Haut
+			               /* if (i > 0) {
+			                    r = random.nextDouble();
+			                    System.out.println("Cellule (" + i + "," + j + ") → Haut : random=" + r);
+			                    if (r < probabilite) nouvelleGrille[i-1][j].mettreEnFeu();
+			                }
+			                
+	                // Bas
+	                if (i < hauteur - 1) {
+	                    r = random.nextDouble();
+	                    System.out.println("Cellule (" + i + "," + j + ") → Bas : random=" + r);
+	                    if (r < probabilite) nouvelleGrille[i+1][j].mettreEnFeu();
+	                }
+	                
+	                // Gauche
+						if (j > 0) {
+						    r = random.nextDouble();
+						    System.out.println("Cellule (" + i + "," + j + ") → Gauche : random=" + r);
+						    if (r < probabilite) nouvelleGrille[i][j-1].mettreEnFeu();
+						}
+						
+						// Droite
+						if (j < largeur - 1) {
+						    r = random.nextDouble();
+						    System.out.println("Cellule (" + i + "," + j + ") → Droite : random=" + r);
+						    if (r < probabilite) nouvelleGrille[i][j+1].mettreEnFeu();
+						}
+                    
+                    */
+	            
 	            }
 	            if (nouvelleGrille[i][j].estEnFeu()) Presentfeu = true;//déclarr la Cellule en feu 
 	        }
 	    }
 
-	    // Mettre à jour la grille
+	    // Mettre à jour la grille à chaque étape 
 	    grille = nouvelleGrille;
-	    return Presentfeu; // vrai s'il reste du feu
+	    return Presentfeu; // Vrai s’il reste au moins une cellule en feu
 	    
 	    
 	}
-	//afficher la grille
+	//Afficher la grille
 	public void afficher() {
 	    for (int i = 0; i < hauteur; i++) {
 	        for (int j = 0; j < largeur; j++) {
-	            System.out.print(grille[i][j] + " "); // utilise toString() de Cellule
+	            System.out.print(grille[i][j] + " "); //Utiliser toString() de la classe Cellule pour un affichage plus clair
 	        }
 	        System.out.println();
 	    }
