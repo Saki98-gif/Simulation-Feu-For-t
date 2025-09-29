@@ -22,7 +22,7 @@ Grâce à un fichier `config.txt` contenant les paramètres essentiels — tels 
 - Package `model/` : avec les classes suivantes :
     - `Etat.java` : Enum:NORMAL, FEU, CENDRES 
     - `Cellule.java`: avec un attribut  de type Etat
-    - `Foret.java' : avec un attribut : grille de Cellule (2D)  
+    - `Foret.java` : avec un attribut : grille de Cellule (2D)  
 - Package `simulation/` : classe principale `Simulation.java` → boucle principale de simulation  
 - `utils/` : classe 'ConfigReader.java ' pour la lecture des fichiers de configuration  `config.txt` / `, Récupérer rapidement les valeurs à l’aide de leurs clés.
 - Fichier de configuration des **paramètres initiaux** : config.txt, Stocker sous forme de **HashMap**, avec des **clés** et des **valeurs**.
