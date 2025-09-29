@@ -35,7 +35,7 @@ Grâce à un fichier `config.txt` contenant les paramètres essentiels — tels 
 - Créer la grille représentant la forêt.
 - Placer les feux initiaux sur les cellules spécifiées.
 ## 2. Boucle de simulation
-- A **t = 0** : tant qu’il reste des cellules en feu, répéter les étapes suivantes :
+- A **t = 0** : tant qu’il reste des cellules en feu, répéter les étapes suivantes : <br>
                 - Mise à jour des cellules en feu : chaque cellule en feu devient cendres.
                 - Propagation du feu : pour chaque cellule adjacente normale :
                     Vérifier que la cellule se trouve bien à l’intérieur des limites de la grille, en prenant soin des bords.
