@@ -36,14 +36,14 @@ Grâce à un fichier `config.txt` contenant les paramètres essentiels — tels 
 - Placer les feux initiaux sur les cellules spécifiées.
 ## 2. Boucle de simulation
 - A **t = 0** : tant qu’il reste des cellules en feu, répéter les étapes suivantes : <br>
-                - Mise à jour des cellules en feu : chaque cellule en feu devient cendres.
-                - Propagation du feu : pour chaque cellule adjacente normale :
-                    Vérifier que la cellule se trouve bien à l’intérieur des limites de la grille, en prenant soin des bords.
-                    Générer un nombre aléatoire entre 0 et 1.
-                    Si ce nombre est inférieur à la probabilité P, mettre la cellule en feu: Cela simule le caractère                             aléatoire et incertain de la propagation (influences du vent, humidité…).
-                - Affichage de la grille : mettre à jour l’état des cellules (nouvelles cellules en feu, cendres, cellules                               normales).
+                - Mise à jour des cellules en feu : chaque cellule en feu devient cendres.<br>
+                - Propagation du feu : pour chaque cellule adjacente normale :<br>
+                    Vérifier que la cellule se trouve bien à l’intérieur des limites de la grille, en prenant soin des bords.<br>
+                    Générer un nombre aléatoire entre 0 et 1.<br>
+                    Si ce nombre est inférieur à la probabilité P, mettre la cellule en feu: Cela simule le caractère                             aléatoire et incertain de la propagation (influences du vent, humidité…).<br>
+                - Affichage de la grille : mettre à jour l’état des cellules (nouvelles cellules en feu, cendres, cellules                               normales).<br>
 
--Pause courte (optionnelle) : permet de visualiser la propagation étape par étape et d’éviter que le feu se propage, dans la même étape, à partir des cellules qui viennent juste de brûler.
+-Pause courte (optionnelle) : permet de visualiser la propagation étape par étape et d’éviter que le feu se propage, dans la même étape, à partir des cellules qui viennent juste de brûler.<br>
 
 ## 3. Fin de la simulation##
 - Lorsqu’il n’y a plus de case en feu, afficher le message : "Fin de simulation, aucune case en feu".
