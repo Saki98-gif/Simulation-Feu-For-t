@@ -9,9 +9,16 @@ La forêt est représentée par une **grille de cellules**, chaque cellule corre
 - La simulation s’arrête quand il n’y a plus de case en feu.
 ## Objectif 
 L’objectif principal est de créer un **modèle flexible et modulable**, capable de s’adapter facilement à différents scénarios. Ce projet illustre la **conception orientée objet**, la **gestion progressive d’une simulation** et la **modularité du code**.
-Grâce à un fichier `config.txt` contenant les paramètres essentiels — tels que la **taille de la forêt h lignes × l colonnes)**, la **probabilité de propagation** et les **positions initiales des feux** — il est possible de tester rapidement plusieurs scénarios et d’observer le comportement de la simulation **sans modifier le code source principal**.
+Grâce à un fichier `config.txt` contenant les paramètres essentiels, il est possible de tester rapidement plusieurs scénarios et d’observer le comportement de la simulation **sans modifier le code source principal**.
 
-## Fonctionnalités
+## Méthodologie de résolution de problème
+- Le projet est organisé selon un modèle orienté objet avec trois packages principaux :
+  ## 1 Package model/ : représente les entités fondamentales de la simulation
+     - Etat : énumération des états possibles d’une cellule "NORMAL, FEU, ou CENDRES".
+     - Cellule : un arbre qui peut se trouver dans l’un des états précédents.
+     - Foret : la grille contenant toutes les cellules et gérant la propagation du feu.
+
+
 - Le temps est discret : Simulation **étape par étape** de la propagation du feu.  
 - Paramètres configurables :  
   - Taille de la forêt (hauteur, largeur)   
@@ -21,7 +28,7 @@ Grâce à un fichier `config.txt` contenant les paramètres essentiels — tels 
 ## Choix architecturaux : 
 Cette séparation en packages rend le code plus lisible, facilite la maintenance et permet d’ajouter de nouvelles fonctionnalités sans modifier les parties existantes.
 - Package `model/` : avec les classes suivantes :
-    - `Etat.java` : Enum:NORMAL, FEU, CENDRES 
+    - `Etat.java` : Enum: NORMAL, FEU, CENDRES 
     - `Cellule.java`: avec un attribut  de type Etat
     - `Foret.java` : avec un attribut : grille de Cellule (2D)  
 - Package `simulation/` : classe principale `Simulation.java` → boucle principale de simulation  
