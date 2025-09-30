@@ -31,8 +31,8 @@ Grâce à un fichier `config.txt` contenant les paramètres essentiels, il est p
   - Cellules initialement en feu  (positions initiales)
   - Code modulaire et extensible
 ## Choix architecturaux : 
-Cette séparation en packages rend le code plus lisible, facilite la maintenance et permet d’ajouter de nouvelles fonctionnalités sans modifier les parties existantes.
-**- Package `model/`** : avec les classes de données suivantes :
+Cette séparation en packages rend le code plus lisible, facilite la maintenance et permet d’ajouter de nouvelles fonctionnalités sans modifier les parties existantes. <br>
+**- Package `model/`** : avec les classes de données suivantes : <br>
     - `Etat.java` : Enum: NORMAL, FEU, CENDRES <br>
     - `Cellule.java`: avec un attribut  de type Etat, et les méthodes suivantes : **bruler()** qui change son état en cendres, **EstEnFeu()** qui vérifie si elle est en feu, et **MettreEnFeu()** qui fait passer son état de normal à en feu.<br>
     - `Foret.java` : avec un attribut grille de Cellule (2D), et les méthodes suivantes : **afficher()** qui affiche la grille à chaque étape de la simulation, **propagerFeu(P)** qui calcule la propagation du feu pour chaque cellule en feu, après avoir vérifié l’existence des cellules adjacentes afin de ne pas dépasser les limites de la grille graçe à la fonction **mettreEnFeu**. <br>
