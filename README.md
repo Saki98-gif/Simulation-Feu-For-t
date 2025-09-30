@@ -18,7 +18,8 @@ Grâce à un fichier `config.txt` contenant les paramètres essentiels — tels 
   - Probabilité de propagation  (P)
   - Cellules initialement en feu  (positions initiales)
   - Code modulaire et extensible
-## Choix architecturaux 
+## Choix architecturaux : 
+Cette séparation en packages rend le code plus lisible, facilite la maintenance et permet d’ajouter de nouvelles fonctionnalités sans modifier les parties existantes.
 - Package `model/` : avec les classes suivantes :
     - `Etat.java` : Enum:NORMAL, FEU, CENDRES 
     - `Cellule.java`: avec un attribut  de type Etat
@@ -59,3 +60,6 @@ initialFeu=0,0;1,2;3,4
 
 ## Conclusion
 Cette approche garantit une solution **adaptable**, **modulaire** et **évolutive**.
+
+## Dépôt GitHub
+Le projet est disponible sur GitHub : [Simulation-Feu-Foret](https://github.com/Saki98-gif/Simulation-Feu-For-t)
