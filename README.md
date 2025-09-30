@@ -13,17 +13,18 @@ Grâce à un fichier `config.txt` contenant les paramètres essentiels, il est p
 
 ## Méthodologie de résolution de problème
 - Le projet est organisé selon un modèle orienté objet avec trois packages principaux : <br>
-  i. Package model/ : représente les entités fondamentales de la simulation <br>
-     - Etat : énumération des états possibles d’une cellule "NORMAL, FEU, ou CENDRES".<br>
-     - Cellule : un arbre qui peut se trouver dans l’un des états précédents.<br>
-     -  Foret : la grille contenant toutes les cellules et gérant la propagation du feu.<br>
+  i. Package model/ : représente les entités fondamentales de la simulation,chaque classe a une responsabilité claire. <br>
+     - Etat : énumération des états possibles d’une cellule "NORMAL, FEU, ou CENDRES". Elle ne gère que son état.<br>
+     - Cellule : un arbre pouvant se trouver dans l’un des états précédents. Elle gère les interactions avec les autres cellules.<br>
+     -  Foret : la grille contenant toutes les cellules et gérant la propagation du feu. Elle orchestre le déroulement de la simulation.<br>
  ii. Package simulation/ : contient la classe principale qui lance et contrôle la simulation<br>
     - Simulation : gère la boucle temporelle, l’affichage étape par étape, et l’arrêt lorsque le feu est éteint.<br>
 iii. Package utils/ : fournit des paramètres  pour la configuration<br>
    - ConfigReader : lit les paramètres de simulation depuis un fichier de configuration (config.txt) afin de rendre le programme flexible et modulable.<br>
 - Identifier les étapes clés : initialisation, propagation, affichage, arrêt.
 - Définir les paramètres externes (fichier config.txt) pour garder la flexibilité.
-- Le temps est discret : Simulation **étape par étape** de la propagation du feu.  
+- Le temps est discret : Simulation **étape par étape** de la propagation du feu.
+- Utilisation du hasard (classe Random) pour modéliser la probabilité réaliste de propagation.
 - Paramètres configurables :  
   - Taille de la forêt (hauteur, largeur)   
   - Probabilité de propagation  (P)
@@ -31,13 +32,15 @@ iii. Package utils/ : fournit des paramètres  pour la configuration<br>
   - Code modulaire et extensible
 ## Choix architecturaux : 
 Cette séparation en packages rend le code plus lisible, facilite la maintenance et permet d’ajouter de nouvelles fonctionnalités sans modifier les parties existantes.
-- Package `model/` : avec les classes suivantes :
+- Package `model/` : avec les classes de données suivantes :
     - `Etat.java` : Enum: NORMAL, FEU, CENDRES 
-    - `Cellule.java`: avec un attribut  de type Etat
-    - `Foret.java` : avec un attribut : grille de Cellule (2D)  
-- Package `simulation/` : classe principale `Simulation.java` → boucle principale de simulation  
-- `utils/` : classe 'ConfigReader.java ' pour la lecture des fichiers de configuration  `config.txt` / `, Récupérer rapidement les valeurs à l’aide de leurs clés.
-- Fichier de configuration des **paramètres initiaux** : config.txt, Stocker sous forme de **HashMap**, avec des **clés** et des **valeurs**.
+    - `Cellule.java`: avec un attribut  de type Etat, et les méthodes suivantes : **bruler()** qui change son état en cendres, **EstEnFeu()** qui vérifie si elle est en feu, et **MettreEnFeu()** qui fait passer son état de normal à en feu.
+    - `Foret.java` : avec un attribut grille de Cellule (2D), et les méthodes suivantes : **afficher()** qui affiche la grille à chaque étape de la simulation, **propagerFeu(P)** qui calcule la propagation du feu pour chaque cellule en feu, après avoir vérifié l’existence des cellules adjacentes afin de ne pas dépasser les limites de la grille graçe à la fonction **mettreEnFeu**.
+- Package `simulation/` : avec la classe principale :
+     - `Simulation.java`  l'attribut de type **objet** Forêt, boucle principale de la simulation qui, initialement, lit le fichier de configuration, crée un objet Forêt, place les feux initiaux, affiche la grille, lance la simulation, puis affiche l’évolution jusqu’à la fin (lorsqu’aucune cellule n’est en feu).
+- `utils/` : avec la classe des fonctions utilitaires: 
+      - 'ConfigReader.java ' pour la lecture des fichiers de configuration  `config.txt` / `, Récupérer rapidement les valeurs à l’aide de leurs clés (h, l, P, positions initiales).
+- Fichier de configuration des **paramètres initiaux** : config.txt, Stocker dans une structure de données **HashMap**, sous forme de paires **<clé, valeur>**.
  ### Exemple de configuration
 `
 hauteur=10   
