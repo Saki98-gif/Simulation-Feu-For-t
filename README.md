@@ -14,13 +14,13 @@ Grâce à un fichier `config.txt` contenant les paramètres essentiels, il est p
 ## Méthodologie de résolution de problème
 - Le projet est organisé selon un modèle orienté objet avec trois packages principaux :
   1. Package model/ : représente les entités fondamentales de la simulation <br>
-     .  Etat : énumération des états possibles d’une cellule "NORMAL, FEU, ou CENDRES".<br>
-     .  Cellule : un arbre qui peut se trouver dans l’un des états précédents.<br>
-     .  Foret : la grille contenant toutes les cellules et gérant la propagation du feu.<br>
+     - Etat : énumération des états possibles d’une cellule "NORMAL, FEU, ou CENDRES".<br>
+     - Cellule : un arbre qui peut se trouver dans l’un des états précédents.<br>
+     -  Foret : la grille contenant toutes les cellules et gérant la propagation du feu.<br>
  2. Package simulation/ : contient la classe principale qui lance et contrôle la simulation<br>
-    . Simulation : gère la boucle temporelle, l’affichage étape par étape, et l’arrêt lorsque le feu est éteint.<br>
+    - Simulation : gère la boucle temporelle, l’affichage étape par étape, et l’arrêt lorsque le feu est éteint.<br>
 3. Package utils/ : fournit des paramètres  pour la configuration<br>
-   . ConfigReader : lit les paramètres de simulation depuis un fichier de configuration (config.txt) afin de rendre le programme flexible et modulable.<br>
+   - ConfigReader : lit les paramètres de simulation depuis un fichier de configuration (config.txt) afin de rendre le programme flexible et modulable.<br>
 - Identifier les étapes clés : initialisation, propagation, affichage, arrêt.
 - Définir les paramètres externes (fichier config.txt) pour garder la flexibilité.
 - Le temps est discret : Simulation **étape par étape** de la propagation du feu.  
