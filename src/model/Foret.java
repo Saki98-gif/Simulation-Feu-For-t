@@ -29,14 +29,12 @@ public class Foret {
 	    }
 	}
 	
-	//Propagation du feu aux cellules adjacentes
-	
+	//Propagation du feu aux cellules adjacentes	
 	public boolean propagation(double probabilite) {
-	    boolean Presentfeu = false;
-	    //Créer une nouvelle grille temporaire pour éviter que le feu se propage plusieurs fois dans la même étape
+	    boolean presentFeu = false;
 	    Cellule[][] nouvelleGrille = new Cellule[hauteur][largeur];
 
-	    // Copier la grille actuelle
+	    // Copier la grille actuelle : éviter que le feu se propage, dans la même étape, à partir des cellules qui viennent juste de brûler
 	    for (int i = 0; i < hauteur; i++) {
 	        for (int j = 0; j < largeur; j++) {
 	            nouvelleGrille[i][j] = new Cellule();
@@ -50,56 +48,71 @@ public class Foret {
 	            if (grille[i][j].estEnFeu()) {
 	                // La cellule actuellement en feu devient cendres
 	                nouvelleGrille[i][j].bruler();
-	             
-	                // Propagation aux 4 voisins
-	               if (i > 0 && random.nextDouble() < probabilite) nouvelleGrille[i-1][j].mettreEnFeu(); // Haut
-	                if (i < hauteur - 1 && random.nextDouble() < probabilite) nouvelleGrille[i+1][j].mettreEnFeu();  // Bas
-	                if (j > 0 && random.nextDouble() < probabilite) nouvelleGrille[i][j-1].mettreEnFeu();// Gauche
-	                if (j < largeur - 1 && random.nextDouble() < probabilite) nouvelleGrille[i][j+1].mettreEnFeu();  // Droite
-	          //2ême méthode avec affichage d’un nombre aléatoire.
 
-	               //  double r;
+	                // Propagation aux 4 cellules voisines normales
+	                if (i > 0 && grille[i-1][j].getEtat() == Etat.NORMAL && random.nextDouble() < probabilite)//Haut
+	                    nouvelleGrille[i-1][j].mettreEnFeu();
+	                if (i < hauteur - 1 && grille[i+1][j].getEtat() == Etat.NORMAL && random.nextDouble() < probabilite)//Bas
+	                    nouvelleGrille[i+1][j].mettreEnFeu();
+	                if (j > 0 && grille[i][j-1].getEtat() == Etat.NORMAL && random.nextDouble() < probabilite)//Gauche
+	                    nouvelleGrille[i][j-1].mettreEnFeu();
+	                if (j < largeur - 1 && grille[i][j+1].getEtat() == Etat.NORMAL && random.nextDouble() < probabilite)//Droite
+	                    nouvelleGrille[i][j+1].mettreEnFeu();
+	               
+	                //2ême méthode avec affichage d’un nombre aléatoire
+	                  //double r;
 		             // Haut
-			               /* if (i > 0) {
-			                    r = random.nextDouble();
-			                    System.out.println("Cellule (" + i + "," + j + ") → Haut : random=" + r);
-			                    if (r < probabilite) nouvelleGrille[i-1][j].mettreEnFeu();
-			                }
-			                
+	                // Haut
+	                /*
+	                if (i > 0 && grille[i-1][j].getEtat() == Etat.NORMAL) {
+	                    r = random.nextDouble();
+	                    System.out.println("Cellule (" + i + "," + j + ") → Haut : random=" + r);
+	                    if (r < probabilite) nouvelleGrille[i-1][j].mettreEnFeu();
+	                }
+
 	                // Bas
-	                if (i < hauteur - 1) {
+	                if (i < hauteur - 1 && grille[i+1][j].getEtat() == Etat.NORMAL) {
 	                    r = random.nextDouble();
 	                    System.out.println("Cellule (" + i + "," + j + ") → Bas : random=" + r);
 	                    if (r < probabilite) nouvelleGrille[i+1][j].mettreEnFeu();
 	                }
-	                
+
 	                // Gauche
-						if (j > 0) {
-						    r = random.nextDouble();
-						    System.out.println("Cellule (" + i + "," + j + ") → Gauche : random=" + r);
-						    if (r < probabilite) nouvelleGrille[i][j-1].mettreEnFeu();
-						}
-						
-						// Droite
-						if (j < largeur - 1) {
-						    r = random.nextDouble();
-						    System.out.println("Cellule (" + i + "," + j + ") → Droite : random=" + r);
-						    if (r < probabilite) nouvelleGrille[i][j+1].mettreEnFeu();
-						}
-                    
-                    */
-	            
+	                if (j > 0 && grille[i][j-1].getEtat() == Etat.NORMAL) {
+	                    r = random.nextDouble();
+	                    System.out.println("Cellule (" + i + "," + j + ") → Gauche : random=" + r);
+	                    if (r < probabilite) nouvelleGrille[i][j-1].mettreEnFeu();
+	                }
+
+	                // Droite
+	                if (j < largeur - 1 && grille[i][j+1].getEtat() == Etat.NORMAL) {
+	                    r = random.nextDouble();
+	                    System.out.println("Cellule (" + i + "," + j + ") → Droite : random=" + r);
+	                    if (r < probabilite) nouvelleGrille[i][j+1].mettreEnFeu();
+	                    
+	                }
+	                System.out.println("----------------------------\n");
+                     */
 	            }
-	            if (nouvelleGrille[i][j].estEnFeu()) Presentfeu = true;//déclarr la Cellule en feu 
 	        }
+	    }
+
+	    // Vérifier s’il reste du feu dans la nouvelle grille
+	    for (int i = 0; i < hauteur; i++) {
+	        for (int j = 0; j < largeur; j++) {
+	            if (nouvelleGrille[i][j].estEnFeu()) {
+	                presentFeu = true; //déclarr la Cellule en feu 
+	                break;
+	            }
+	        }
+	        if (presentFeu) break; //Condition d’arrêt : aucune cellule en feu 
 	    }
 
 	    // Mettre à jour la grille à chaque étape 
 	    grille = nouvelleGrille;
-	    return Presentfeu; // Vrai s’il reste au moins une cellule en feu
-	    
-	    
+	    return presentFeu;
 	}
+
 	//Afficher la grille
 	public void afficher() {
 	    for (int i = 0; i < hauteur; i++) {
