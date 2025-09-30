@@ -12,7 +12,7 @@ L’objectif principal est de créer un **modèle flexible et modulable**, capab
 Grâce à un fichier `config.txt` contenant les paramètres essentiels, il est possible de tester rapidement plusieurs scénarios et d’observer le comportement de la simulation **sans modifier le code source principal**.
 
 ## Méthodologie de résolution de problème
-- Le projet est organisé selon un modèle orienté objet avec trois packages principaux :
+- Le projet est organisé selon un modèle orienté objet avec trois packages principaux : <br>
   i. Package model/ : représente les entités fondamentales de la simulation <br>
      - Etat : énumération des états possibles d’une cellule "NORMAL, FEU, ou CENDRES".<br>
      - Cellule : un arbre qui peut se trouver dans l’un des états précédents.<br>
