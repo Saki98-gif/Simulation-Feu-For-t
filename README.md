@@ -36,7 +36,7 @@ Cette séparation en packages rend le code plus lisible, facilite la maintenance
     - `Etat.java` : Enum: NORMAL, FEU, CENDRES <br>
     - `Cellule.java`: avec un attribut  de type Etat, et les méthodes suivantes : **bruler()** qui change son état en cendres, **EstEnFeu()** qui vérifie si elle est en feu, et **MettreEnFeu()** qui fait passer son état de normal à en feu.<br>
     - `Foret.java` : avec un attribut grille de Cellule (2D), et les méthodes suivantes : **afficher()** qui affiche la grille à chaque étape de la simulation, **propagerFeu(P)** qui calcule la propagation du feu pour chaque cellule en feu, après avoir vérifié l’existence des cellules adjacentes afin de ne pas dépasser les limites de la grille graçe à la fonction **mettreEnFeu**. <br>
-**- Package `simulation/`** : avec la classe principale :
+**- Package `simulation/`** : avec la classe principale : <br>
      - `Simulation.java`  l'attribut de type **objet** Forêt, boucle principale de la simulation qui, initialement, lit le fichier de configuration, crée un objet Forêt, place les feux initiaux, affiche la grille, lance la simulation, puis affiche l’évolution jusqu’à la fin (lorsqu’aucune cellule n’est en feu). <br>
 **- `Package utils/`** : avec la classe des fonctions utilitaires: <br>
    - 'ConfigReader.java ' pour la lecture des fichiers de configuration  `config.txt` / `, Récupérer rapidement les valeurs à l’aide de leurs clés (h, l, P, positions initiales). <br>
