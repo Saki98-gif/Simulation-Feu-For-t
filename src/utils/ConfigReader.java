@@ -12,7 +12,7 @@ public class ConfigReader {
     public static Map<String, String> lireConfig(String cheminFichier) {
         Map<String, String> config = new HashMap<>(); //Créer une **HashMap** vide pour stocker les données
 
-        //`try` → Assure que le fichier sera automatiquement fermé à la fin, même en cas d’erreur
+        //try → Assure que le fichier sera automatiquement fermé à la fin, même en cas d’erreur
         try (BufferedReader br = new BufferedReader(new FileReader(cheminFichier))) {//Ouvrir le fichier et le lire ligne par ligne 
             String ligne;
             while ((ligne = br.readLine()) != null) { //Tant qu’il reste des lignes à lire
