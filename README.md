@@ -57,6 +57,11 @@ initialFeu=0,0;1,2;3,4
 
 ## 3. Fin de la simulation
 - Lorsqu’il n’y a plus de case en feu, afficher le message : "Fin de simulation, aucune case en feu".
+## Outils utilisés
+- **Langage** : Java (JDK 25)  
+- **IDE** : Eclipse IDE  
+- **Gestion de versions** : Git & GitHub  
+- **OS** : Windows 11
 
 ## Conclusion
 Cette approche garantit une solution **adaptable**, **modulaire** et **évolutive**.
