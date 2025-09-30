@@ -41,7 +41,7 @@ Cette séparation en packages rend le code plus lisible, facilite la maintenance
 **- `Package utils/`** : avec la classe des fonctions utilitaires: <br>
    - ` ConfigReader.java` pour la lecture des fichiers de configuration  `config.txt` / `, Récupérer rapidement les valeurs à l’aide de leurs clés (h, l, P, positions initiales). <br>
 - `config.txt `: Fichier de configuration des **paramètres initiaux** est stocké dans une structure de données **HashMap**, sous forme de paires **<clé, valeur>**.<br>
-  Exemple de configuration
+  Exemple de configuration :
 `
 hauteur=10   
 largeur=10  
