@@ -38,7 +38,7 @@ Cette séparation en packages rend le code plus lisible, facilite la maintenance
     - `Foret.java` : avec un attribut grille de Cellule (2D), et les méthodes suivantes : **afficher()** qui affiche la grille à chaque étape de la simulation, **propagerFeu(P)** qui calcule la propagation du feu pour chaque cellule en feu, après avoir vérifié l’existence des cellules adjacentes afin de ne pas dépasser les limites de la grille graçe à la fonction **mettreEnFeu**.
 - Package `simulation/` : avec la classe principale :
      - `Simulation.java`  l'attribut de type **objet** Forêt, boucle principale de la simulation qui, initialement, lit le fichier de configuration, crée un objet Forêt, place les feux initiaux, affiche la grille, lance la simulation, puis affiche l’évolution jusqu’à la fin (lorsqu’aucune cellule n’est en feu).
-- `utils/` : avec la classe des fonctions utilitaires: 
+- `utils/` : avec la classe des fonctions utilitaires: <br>
       - 'ConfigReader.java ' pour la lecture des fichiers de configuration  `config.txt` / `, Récupérer rapidement les valeurs à l’aide de leurs clés (h, l, P, positions initiales).
 - Fichier de configuration des **paramètres initiaux** : config.txt, Stocker dans une structure de données **HashMap**, sous forme de paires **<clé, valeur>**.
  ### Exemple de configuration
