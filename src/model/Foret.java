@@ -22,6 +22,24 @@ public class Foret {
 	    }
 	}
 	
+	// Ajoute getter 
+		public int getHauteur() {
+		    return this.hauteur;
+		}
+
+		public int getLargeur() {
+		    return this.largeur;
+		}
+
+		// constructeur 
+		public Cellule getCellule(int ligne, int colonne) {
+		    if (ligne >= 0 && ligne < hauteur && colonne >= 0 && colonne < largeur) {
+		        return grille[ligne][colonne];
+		    } else {
+		        return null; // ou lever une exception si tu préfères
+		    }
+		}
+	
 	//Vérifier que la cellule existe dans la grille avant de la mettre en feu, afin de ne pas dépasser les limites de la grille
 	public void mettreEnFeu(int ligne, int colonne) {
 	    if (ligne >= 0 && ligne < hauteur && colonne >= 0 && colonne < largeur) {

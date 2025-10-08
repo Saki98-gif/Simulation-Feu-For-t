@@ -1,10 +1,12 @@
 package simulation;
 import model.Foret;
 import utils.ConfigReader;
+import view.FenetreSimulation;
+
 import java.util.Map;
 
 public class Simulation {
-
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -49,4 +51,29 @@ public class Simulation {
         System.out.println("\n **Le feu est éteint, simulation terminée !** ");
 	}
 
+/*
+	  public static void main(String[] args) {
+	        Map<String, String> config = ConfigReader.lireConfig("config.txt");
+
+	        int hauteur = Integer.parseInt(config.get("hauteur"));
+	        int largeur = Integer.parseInt(config.get("largeur"));
+	        double probabilite = Double.parseDouble(config.get("probabilite"));
+	        String initialFeu = config.get("initialFeu");
+
+	        Foret foret = new Foret(hauteur, largeur);
+
+	        String[] positions = initialFeu.split(";");
+	        for (String pos : positions) {
+	            String[] coords = pos.split(",");
+	            foret.mettreEnFeu(Integer.parseInt(coords[0]), Integer.parseInt(coords[1]));
+	        }
+
+	       new FenetreSimulation(foret, probabilite, hauteur, largeur, initialFeu);
+	    }
+	    
+	 
+*/
+
 }
+
+
